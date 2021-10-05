@@ -1,15 +1,29 @@
 ﻿<Properties StartupConfiguration="{DE7B29F4-9FFB-4B00-824E-92CFD594D821}|Default">
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="shop/Migrations/20211005105741_Initial.cs">
+    <Files>
+      <File FileName="shop/Views/Product/List.cshtml" Line="24" Column="1" />
+      <File FileName="shop/Startup.cs" Line="17" Column="15" />
+      <File FileName="shop/Controllers/ProductController.cs" />
+      <File FileName="shop/wwwroot/css/site.css" />
+      <File FileName="shop/Data/AppDbContent.cs" />
+      <File FileName="shop/dbsettings.json" />
+      <File FileName="shop/Data/Repository/ProductRepository.cs" />
+      <File FileName="shop/Data/Repository/CategoryRepository.cs" />
+      <File FileName="shop/Data/Interfaces/IAllProduct.cs" />
+      <File FileName="shop/Migrations/20211005105741_Initial.cs" Line="22" Column="1" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="shop" expanded="True">
-            <Node name="shop" expanded="True" selected="True" />
+            <Node name="shop" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+              <Node name="Migrations" expanded="True">
+                <Node name="20211005105741_Initial.cs" selected="True" />
+              </Node>
+            </Node>
           </Node>
         </State>
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

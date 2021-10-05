@@ -8,13 +8,22 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using shop.Data;
 using shop.Data.Interfaces;
-using shop.Data.Mocks;
+using IHostingEnvironment = Microsoft.Extensions.Hosting.IHostingEnvironment;
+using Microsoft.EntityFrameworkCore;
+using shop.Data.Repository;
 
 namespace shop
 {
     public class Startup
     {
+        private IConfigurationRoot _confString;
+
+        public Startup(IHostingEnvironment hostEnv) {
+            _confString = new ConfigurationBuilder().SetBasePath(hostEnv.ContentRootPath).AddJsonFile("dbsettings.json").Build();
+        }
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -25,9 +34,10 @@ namespace shop
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<AppDbContent>(options => options.UseSqlServer(_confString.GetConnectionString("DefaultConnection")));
             services.AddControllersWithViews();
-            services.AddTransient<IAllProduct, MockProduct>();
-            services.AddTransient<IProductCategory, MockCategory>();
+            services.AddTransient<IAllProduct, ProductRepository>();
+            services.AddTransient<IProductCategory, CategoryRepository>();
             services.AddMvc();
         }
 

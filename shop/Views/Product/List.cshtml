@@ -1,26 +1,23 @@
 ﻿@using shop.Data.Models
 @model IEnumerable<Product>
 
-@{
+@*@{
     Layout = null;
-}
+}*@
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>List</title>
-</head>
-<body>
-    <h2>Все чехлы</h2>
-    @{
-        foreach(var product in Model) {
-              <div>
-                  <h2>Модель: @product.name</h2>
-                  <p>Цена: @product.price.ToString("c")</p>
-              </div>  
+<h2>Все чехлы</h2>
+<div class="row">
+    <div class="col-lg-12">
+        @{
+            foreach (var product in Model)
+            {
+                <div class="col-lg-3">
+                    <div class="product-card">
+                        <h2>Модель: @product.name</h2>
+                        <p>Цена: @product.price.ToString("c")</p>
+                    </div>
+                </div>
+            }
         }
-    }
-</body>
-</html>
+    </div>
+</div>
